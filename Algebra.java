@@ -70,7 +70,7 @@ public class Algebra
 	// Returns x1 * x2
 	public static int times(int x1, int x2)
 	 {
-		int helpnum = x1;
+		int helpnum = 0;
 		if(x1==0 || x2==0)
 			return 0;
 		if(x2>0)
