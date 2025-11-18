@@ -39,7 +39,7 @@ public class Anagram {
 		{
 			char tavhelp1= str1.charAt(i);
 			for(int j=0; j<str2.length(); j++){
-				char tavhelp2= str1.charAt(j);
+				char tavhelp2= str2.charAt(j);
 				if(tavhelp1 == tavhelp2)
 					count1++;
 				for( int k=0; k<str1.length(); k++)
@@ -81,7 +81,7 @@ public class Anagram {
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str)
 	{
-		String help = " ";
+		String help = "";
 		while (str.length()>0)
 		{
 			int random= (int)(Math.random()*str.length());
