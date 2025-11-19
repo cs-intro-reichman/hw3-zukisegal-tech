@@ -33,7 +33,6 @@ public class Anagram {
 		str2= preProcess(str2);
 		if(str1.length()!= str2.length())
 			return false;
-		
 		for( int i=0; i<str1.length(); i++)
 		{
 			int count1 =0;
@@ -43,20 +42,19 @@ public class Anagram {
 			{
 				char tavhelp2= str2.charAt(j);
 				if(tavhelp1 == tavhelp2)
-					count2++;
+					count2= count2+1;
 			}
 			for( int k=0; k<str1.length(); k++)
 			{
 					if(tavhelp1== str1.charAt(k))
-					count1++;
+					count1= count1+1;
 			}
 		if(count1==0 || count2==0)
 			return false;
 		if(count1!=count2)
 			return false;	
 		}
-		
-		return false;
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -88,7 +86,7 @@ public class Anagram {
 		while (str.length()>0)
 		{
 			int random= (int)(Math.random()*str.length());
-			char randomChar = str.charAt(random);
+			String randomChar = ("" +str.charAt(random));
 			help= help + randomChar;
 			str= str.substring(0, random) + str.substring(random+1);
 			

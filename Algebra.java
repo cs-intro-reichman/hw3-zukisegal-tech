@@ -66,35 +66,54 @@ public class Algebra
 		{
 			for(int i=0; i<x2; i++)
 				helpnum= plus(helpnum , x1);
+			return helpnum;
 		}
 		if(x2<0 && (x1>0)|| (x2>0)&& (x1<0))
 		{
 			for(int j=0; j>x2; j--)
 				helpnum= minus(helpnum , x1);
+			return helpnum;
 		}
 		if((x2<0)&& (x1<0))
 		{
 			for( int k=0; k>x2; k--)
 				helpnum= plus(helpnum, minus(0, x1));
+			return helpnum;
 		}
-		return helpnum;
+		return 0;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) 
 	{
 		int helpnum= 1;
+		boolean even = true;
+		boolean negative= x<0;
+		int num= n;
+		boolean needchange= false;
 		if(n==0)
 			return 1;
-		if(n==1)
-			return x;
-		else
+		if(n<0)
+			return 0;
+		while (num>=2) 
 		{
-			for(int i=0; i<n; i++)
-				helpnum= times(helpnum, x);
-
-
+			num= minus(num, 2);
 		}
+		if(num==1)
+			even=false;
+		int base = x;
+		if(negative)
+		{
+			base = minus(0,x);
+			if(even==false)
+				needchange=true;
+		}
+		for(int i=0; i<n; i++)
+		{
+			helpnum= times(helpnum, base);
+		}
+		if(needchange)
+			return minus(0, helpnum);
 		return helpnum;
 	}
 
