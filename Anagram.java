@@ -33,10 +33,11 @@ public class Anagram {
 		str2= preProcess(str2);
 		if(str1.length()!= str2.length())
 			return false;
-		int count1 =0;
-		int count2 =0;
+		
 		for( int i=0; i<str1.length(); i++)
 		{
+			int count1 =0;
+			int count2 =0;
 			char tavhelp1= str1.charAt(i);
 			for(int j=0; j<str2.length(); j++)
 			{
@@ -72,7 +73,6 @@ public class Anagram {
 				if(Character.isUpperCase(tav))
 					tav= Character.toLowerCase(tav);
 				newstr= newstr + tav;
-			
 			}
 			
 
