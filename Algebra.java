@@ -24,46 +24,35 @@ public class Algebra
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
 	}  
-
-	// Returns x1 + x2
+// Returns x1 + x2
 	public static int plus(int x1, int x2)
 	 {
-		if(x1<0)
-		{
-			for(int i=0; i<x2; i++)
-				x1++;
-		}
 		if(x2>0)
 		{
 			for(int i=0; i<x2; i++)
 				x1++;
 		}
-		if(x2<0)
+		else
 		{
 			for(int i=0; i<x2; i++)
 				x1--;
 		}
-	
 		return x1;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) 
 	{
-		if(x1==0 && x2>0)
-			return -x2;
-		if(x2==0)
-			return x1;
-		if(x2<0)
+		if(x2>0)
 		{
-			x2=-x2;
-			for(int i=0; i<x2; i++)
-				x1++;
-			return x1;
-		}
-		for( int i=0; i<x2; i++)
+			for( int i=0; i<x2; i++)
 				x1--;
-		
+		}
+		else
+		{
+			for( int i=0; i<x2; i++)
+				x1++;
+		}
 		return x1;
 	}
 
@@ -73,15 +62,20 @@ public class Algebra
 		int helpnum = 0;
 		if(x1==0 || x2==0)
 			return 0;
-		if(x2>0)
+		if(x2>0 && x1>0)
 		{
-			for(int i=0; i<x2-1; i++)
+			for(int i=0; i<x2; i++)
 				helpnum= plus(helpnum , x1);
 		}
-		else
+		if(x2<0 && (x1>0)|| (x2>0)&& (x1<0))
 		{
-			for(int i=0; i<x2-1; i--)
+			for(int j=0; j>x2; j--)
 				helpnum= minus(helpnum , x1);
+		}
+		if((x2<0)&& (x1<0))
+		{
+			for( int k=0; k>x2; k--)
+				helpnum= plus(helpnum, minus(0, x1));
 		}
 		return helpnum;
 	}

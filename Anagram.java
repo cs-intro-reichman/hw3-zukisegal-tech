@@ -38,20 +38,23 @@ public class Anagram {
 		for( int i=0; i<str1.length(); i++)
 		{
 			char tavhelp1= str1.charAt(i);
-			for(int j=0; j<str2.length(); j++){
+			for(int j=0; j<str2.length(); j++)
+			{
 				char tavhelp2= str2.charAt(j);
 				if(tavhelp1 == tavhelp2)
-					count1++;
-				for( int k=0; k<str1.length(); k++)
-				{
-					if(tavhelp1== str1.charAt(k))
 					count2++;
-				}
-
 			}
+			for( int k=0; k<str1.length(); k++)
+			{
+					if(tavhelp1== str1.charAt(k))
+					count1++;
+			}
+		if(count1==0 || count2==0)
+			return false;
+		if(count1!=count2)
+			return false;	
 		}
-		if(count1==count2)
-			return true;
+		
 		return false;
 	}
 	   
