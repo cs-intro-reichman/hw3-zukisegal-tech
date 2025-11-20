@@ -27,23 +27,70 @@ public class Anagram {
 	}  
 
 	// Returns true if the two given strings are anagrams, false otherwise.
-	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+	public static boolean isAnagram(String str1, String str2)
+	{
+		str1=preProcess(str1);
+		str2= preProcess(str2);
+		if(str1.length()!= str2.length())
+			return false;
+		for( int i=0; i<str1.length(); i++)
+		{
+			int count1 =0;
+			int count2 =0;
+			char tavhelp1= str1.charAt(i);
+			for(int j=0; j<str2.length(); j++)
+			{
+				char tavhelp2= str2.charAt(j);
+				if(tavhelp1 == tavhelp2)
+					count2= count2+1;
+			}
+			for( int k=0; k<str1.length(); k++)
+			{
+					if(tavhelp1== str1.charAt(k))
+					count1= count1+1;
+			}
+		if(count1==0 || count2==0)
+			return false;
+		if(count1!=count2)
+			return false;	
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
-	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+	public static String preProcess(String str) 
+	{
+		String newstr = "" ;
+		for( int i=0; i<str.length(); i++)
+		{
+			char tav= str.charAt(i);
+			if(Character.isLetter(tav))
+			{
+				if(Character.isUpperCase(tav))
+					tav= Character.toLowerCase(tav);
+				newstr= newstr + tav;
+			}
+			
+
+		}
+		return newstr;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
-	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+	public static String randomAnagram(String str)
+	{
+		String help = "";
+		while (str.length()>0)
+		{
+			int random= (int)(Math.random()*str.length());
+			String randomChar = ("" +str.charAt(random));
+			help= help + randomChar;
+			str= str.substring(0, random) + str.substring(random+1);
+			
+		}
+		return help;
 	}
 }

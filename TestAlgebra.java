@@ -88,7 +88,9 @@ public class TestAlgebra {
         System.out.println("Test 2 (multiply by zero): " + (test2 ? "PASS" : "FAIL"));
         
         boolean test3 = Algebra.times(-2, 3) == -6;
+        System.out.println(Algebra.times(-2, 3));
         System.out.println("Test 3 (negative number): " + (test3 ? "PASS" : "FAIL"));
+
         
         boolean test4 = Algebra.times(-2, -3) == 6;
         System.out.println("Test 4 (negative numbers): " + (test4 ? "PASS" : "FAIL"));
