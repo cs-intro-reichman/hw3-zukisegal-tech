@@ -34,7 +34,7 @@ public class Algebra
 		}
 		else
 		{
-			for(int i=0; i<x2; i++)
+			for(int i=0; i< Math.abs(x2); i++)
 				x1--;
 		}
 		return x1;
@@ -50,7 +50,7 @@ public class Algebra
 		}
 		else
 		{
-			for( int i=0; i<x2; i++)
+			for( int i=0; i<Math.abs(x2); i++)
 				x1++;
 		}
 		return x1;
@@ -68,12 +68,19 @@ public class Algebra
 				helpnum= plus(helpnum , x1);
 			return helpnum;
 		}
-		if(x2<0 && (x1>0)|| (x2>0)&& (x1<0))
+		if(x2<0 && (x1>0))
 		{
 			for(int j=0; j>x2; j--)
-				helpnum= minus(helpnum , x1);
+				helpnum= minus(helpnum , x2);
 			return helpnum;
 		}
+		if((x2>0) && (x1<0))
+		{
+			for( int g=0; g<x2; g++)
+				helpnum= minus(helpnum , minus(0, x1));
+			return helpnum;
+		}
+		
 		if((x2<0)&& (x1<0))
 		{
 			for( int k=0; k>x2; k--)
